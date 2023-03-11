@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/2300px-React-icon.svg.png" alt="react-logo" width="150"/>
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/4c/Typescript_logo_2020.svg/1200px-Typescript_logo_2020.svg.png" alt="react-logo" width="150"/>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<br />
 
-## Available Scripts
+# Welcome to React Reminders 👋
+![Version](https://img.shields.io/badge/version-1.0.0-blue.svg?cacheSeconds=2592000)
+[![Twitter: tw0po1nt](https://img.shields.io/twitter/follow/tw0po1nt.svg?style=social)](https://twitter.com/tw0po1nt)
 
-In the project directory, you can run:
+> This is the repository containing the code for "React Reminders", an educational application built as part of the "Intro to React with TypeScript" presentation, part 1 of which was initially presented to the Augustana University web programming class in the spring of 2023
 
-### `npm start`
+<br>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Overview
+This app is meant to be designed and layed out similar to the Reminders app in macOS. Plz don't sue me, Apple. This is for educational purposes only.
+<br />
+## Getting started
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### 1. Clone the repository
+```sh
+git clone git@github.com:tw0po1nt/react-reminders.git
+```
 
-### `npm test`
+### 2. Install dependencies
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+```sh
+npm install
+```
 
-### `npm run build`
+### 3. Run the app
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+```sh
+npm start
+```
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 4. See running app in browser
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+See your running application [here](http://localhost:3000)
 
-### `npm run eject`
+## Author
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+👤 **Matthew Watt**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+* [GitHub](https://github.com/tw0po1nt)
+* Twitter: [@resultstack](https://twitter.com/tw0po1nt)
