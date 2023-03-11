@@ -1,25 +1,13 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="container flex flex-row bg-zinc-900 overflow-clip h-screen max-w-5xl rounded-xl lg:my-8">
+      <aside className="h-full w-1/3 bg-zinc-800 border-r border-black pt-4 pl-4">
+        <h1 className="text-2xl text-white font-bold">[Sidebar component here]</h1>
+      </aside>
+      <section className="h-full grow pt-4 pl-4">
+        <h1 className="text-2xl text-white font-bold">[Reminders list component here]</h1>
+      </section>
+    </main>
   );
 }
 
