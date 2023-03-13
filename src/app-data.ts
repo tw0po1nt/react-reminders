@@ -25,3 +25,18 @@ export const LISTS: ReminderList[] = [
     reminders: [],
   },
 ];
+
+const COLORS = [
+  "#EB5545",
+  "#F9D84A",
+  "#68CE6A",
+  "#89C1FA",
+  "#5E5CDE",
+  "#EC5D7B",
+  "#C983EE",
+  "#C3A77C",
+  "#747E86",
+  "#E3B7B0"
+]
+
+export const getRandomColor = () => COLORS[Math.floor(Math.random()*COLORS.length)];
