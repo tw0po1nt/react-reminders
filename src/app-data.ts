@@ -16,13 +16,30 @@ export const LISTS: ReminderList[] = [
     id: 1,
     name: "Reminders",
     color: "#F19A38",
-    reminders: [],
+    reminders: [
+      {
+        id: 1,
+        task: "Do the dishes",
+        isCompleted: false,
+      },
+      {
+        id: 2,
+        task: "Hang up the clothes",
+        isCompleted: true,
+      }
+    ],
   },
   {
     id: 2,
     name: "Final project tasks",
     color: "#3B82F7",
-    reminders: [],
+    reminders: [
+      {
+        id: 1,
+        task: "Write a React app",
+        isCompleted: false,
+      }
+    ],
   },
 ];
 

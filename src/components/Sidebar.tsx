@@ -1,4 +1,4 @@
-import { FC, useState, ChangeEvent, KeyboardEvent, useEffect } from "react";
+import { FC, useState, ChangeEvent, KeyboardEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faListUl, faCirclePlus } from "@fortawesome/free-solid-svg-icons";
 import { ReminderList, getRandomColor } from "../app-data";
@@ -93,7 +93,7 @@ const Sidebar: FC<SidebarProps> = ({ lists, selectedListId, onSelectList, onComm
               onChange={handleNewListNameChange} 
               onKeyUp={handleReturnKeyClicked}
               onBlur={handleNewListBlur} />
-        </div>
+          </div>
         )}
       </div>
     </section>
