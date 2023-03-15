@@ -18,7 +18,7 @@ This app is meant to be designed and layed out similar to the Reminders app in m
 
 ### 1. Clone the repository
 ```sh
-git clone git@github.com:tw0po1nt/react-reminders.git
+git clone https://github.com/tw0po1nt/react-reminders.git
 ```
 
 ### 2. Install dependencies
@@ -42,4 +42,4 @@ See your running application [here](http://localhost:3000)
 👤 **Matthew Watt**
 
 * [GitHub](https://github.com/tw0po1nt)
-* Twitter: [@resultstack](https://twitter.com/tw0po1nt)
+* Twitter: [@tw0po1nt](https://twitter.com/tw0po1nt)
