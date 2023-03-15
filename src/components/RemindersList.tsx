@@ -1,18 +1,33 @@
 import { FC, useState, ChangeEvent, KeyboardEvent } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCirclePlus } from "@fortawesome/free-solid-svg-icons";
+import { faCirclePlus, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { ReminderList, Reminder } from "../app-data";
 
 interface ReminderListProps {
   list: ReminderList;
   onMarkCompleted: (reminderId: number) => void;
   onAddNewReminder: (reminder: Reminder) => void;
+  onDeleteReminder: (reminderId: number) => void;
 }
 
-const RemindersList: FC<ReminderListProps> = ({ list, onMarkCompleted, onAddNewReminder }) => {
+const RemindersList: FC<ReminderListProps> = ({
+  list,
+  onMarkCompleted,
+  onAddNewReminder,
+  onDeleteReminder,
+}) => {
   const [newReminder, setNewReminder] = useState<
     Omit<Reminder, "id"> | undefined
   >();
+  const [hoverId, setHoverId] = useState<number | undefined>();
+
+  const handleReminderMouseOver = (id: number) => {
+    setHoverId(id);
+  };
+
+  const handleReminderMouseOut = () => {
+    setHoverId(undefined);
+  };
 
   const handleAddNewReminderClicked = () => {
     if (!newReminder) {
@@ -24,16 +39,16 @@ const RemindersList: FC<ReminderListProps> = ({ list, onMarkCompleted, onAddNewR
   };
 
   const handleNewReminderNameChange = (e: ChangeEvent<HTMLInputElement>) => {
-    setNewReminder(prev => {
+    setNewReminder((prev) => {
       if (prev) {
         return {
           ...prev,
           task: e.target.value,
-        }
+        };
       }
 
       return prev;
-    })
+    });
   };
 
   const handleReturnKeyClicked = (e: KeyboardEvent<HTMLInputElement>) => {
@@ -48,10 +63,12 @@ const RemindersList: FC<ReminderListProps> = ({ list, onMarkCompleted, onAddNewR
 
   const commitNewReminder = () => {
     if (newReminder) {
-      const nextId = list.reminders.length ? list.reminders[list.reminders.length - 1].id + 1 : 1;
+      const nextId = list.reminders.length
+        ? list.reminders[list.reminders.length - 1].id + 1
+        : 1;
       onAddNewReminder({
         ...newReminder,
-        id: nextId
+        id: nextId,
       });
       setNewReminder(undefined);
     }
@@ -75,7 +92,12 @@ const RemindersList: FC<ReminderListProps> = ({ list, onMarkCompleted, onAddNewR
       </div>
       <div className="w-full">
         {list.reminders.map((r) => (
-          <div className="flex flex-row items-center p-2" key={r.id}>
+          <div
+            className="flex flex-row items-center p-2"
+            key={r.id}
+            onMouseOver={() => handleReminderMouseOver(r.id)}
+            onMouseOut={handleReminderMouseOut}
+          >
             <div
               className="flex flex-row justify-center items-center border w-5 h-5 rounded-full ml-4 mr-2 cursor-pointer"
               style={{
@@ -93,7 +115,14 @@ const RemindersList: FC<ReminderListProps> = ({ list, onMarkCompleted, onAddNewR
                 ></div>
               )}
             </div>
-            <p className="text-white">{r.task}</p>
+            <p className="text-white grow">{r.task}</p>
+            {hoverId === r.id && (
+              <FontAwesomeIcon
+                icon={faTrash}
+                className="text-zinc-400 ml-4 mr-2 w-5 h-5 cursor-pointer"
+                onClick={() => onDeleteReminder(r.id)}
+              />
+            )}
           </div>
         ))}
         {newReminder ? (
@@ -102,16 +131,20 @@ const RemindersList: FC<ReminderListProps> = ({ list, onMarkCompleted, onAddNewR
               icon={faCirclePlus}
               className="text-zinc-400 ml-4 mr-2 w-5 h-5"
             />
-            <input 
-              className="grow bg-zinc-800 text-white focus:ring-0 focus:ring-offset-0" 
-              type="text" 
+            <input
+              className="grow bg-zinc-800 text-white focus:ring-0 focus:ring-offset-0"
+              type="text"
               value={newReminder.task}
-              onChange={handleNewReminderNameChange} 
+              onChange={handleNewReminderNameChange}
               onKeyUp={handleReturnKeyClicked}
-              onBlur={handleNewReminderBlur} />
+              onBlur={handleNewReminderBlur}
+            />
           </div>
         ) : (
-          <div className="flex flex-row items-center p-2 cursor-pointer" onClick={handleAddNewReminderClicked}>
+          <div
+            className="flex flex-row items-center p-2 cursor-pointer"
+            onClick={handleAddNewReminderClicked}
+          >
             <FontAwesomeIcon
               icon={faCirclePlus}
               className="text-zinc-400 ml-4 mr-2 w-5 h-5"

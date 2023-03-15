@@ -68,6 +68,29 @@ function App() {
     }
   };
 
+  const handleDeleteReminder = (reminderId: number) => {
+    const listIdx = lists.findIndex((l) => l.id === selectedListId);
+    if (listIdx >= 0) {
+      const list = lists[listIdx];
+      const reminderIdx = list.reminders.findIndex((r) => r.id === reminderId);
+      if (reminderIdx >= 0) {
+        const updatedReminders = [
+          ...list.reminders.slice(0, reminderIdx),
+          ...list.reminders.slice(reminderIdx + 1),
+        ];
+
+        setLists((prev) => [
+          ...prev.slice(0, listIdx),
+          {
+            ...prev[listIdx],
+            reminders: updatedReminders,
+          },
+          ...prev.slice(listIdx + 1),
+        ]);
+      }
+    }
+  }
+
   return (
     <div className="container flex flex-row bg-zinc-900 overflow-clip h-screen max-w-5xl rounded-xl lg:my-8">
       <aside className="h-full w-1/3 min-w-fit bg-zinc-800 border-r border-black p-4">
@@ -84,6 +107,7 @@ function App() {
             list={selectedList}
             onMarkCompleted={handleMarkCompleted}
             onAddNewReminder={handleAddReminder}
+            onDeleteReminder={handleDeleteReminder}
           />
         )}
       </section>
