@@ -48,7 +48,7 @@ const Sidebar: FC<SidebarProps> = ({ lists, selectedListId, onSelectList, onComm
 
   const commitNewListItem = () => {
     if (newList) {
-      const nextId = lists[lists.length - 1].id + 1;
+      const nextId = lists.length ? lists[lists.length - 1].id + 1 : 1;
       onCommitAddList(newList);
       setNewList(undefined);
       onSelectList(nextId);
@@ -59,9 +59,9 @@ const Sidebar: FC<SidebarProps> = ({ lists, selectedListId, onSelectList, onComm
     <section className="w-full">
       <div className="flex flex-row items-baseline">
         <h1 className="grow text-2xl text-white font-bold ml-2 mb-2">My Lists</h1>
-        <div className="flex flex-row items-center">
+        <div className="flex flex-row items-center cursor-pointer" onClick={handleAddListClicked}>
           <FontAwesomeIcon icon={faCirclePlus} className="text-zinc-400 mr-1" />
-          <p className="text-zinc-400 cursor-pointer" onClick={handleAddListClicked}>Add List</p>
+          <p className="text-zinc-400">Add List</p>
         </div>
       </div>
       <div className="w-full">
